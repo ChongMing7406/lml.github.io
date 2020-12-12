@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" >
 
-<title>技能系统——时间静止，潜能爆发，电磁脉冲 | 冲鸣</title>
+<title>[UE4]技能系统——时间静止，潜能爆发，电磁脉冲 | 冲鸣</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chongming7406.github.io/cmblog.github.io/favicon.ico?v=1607801607711">
+<link rel="shortcut icon" href="https://chongming7406.github.io/cmblog.github.io/favicon.ico?v=1607805918845">
 <link rel="stylesheet" href="https://chongming7406.github.io/cmblog.github.io/styles/main.css">
 
 
@@ -26,8 +26,9 @@
 增加折射材质和其他元素（例：三角形）
 蓝图中添加触发器
 时间静止逻辑
-当有角色..." />
-    <meta name="keywords" content="" />
+
+当有角..." />
+    <meta name="keywords" content="UE4" />
   </head>
   <body>
     <div id="app" class="main">
@@ -36,7 +37,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://chongming7406.github.io/cmblog.github.io">
-        <img src="https://chongming7406.github.io/cmblog.github.io/images/avatar.png?v=1607801607711" class="site-logo">
+        <img src="https://chongming7406.github.io/cmblog.github.io/images/avatar.png?v=1607805918845" class="site-logo">
         <h1 class="site-title">冲鸣</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -98,7 +99,7 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">技能系统——时间静止，潜能爆发，电磁脉冲</h2>
+            <h2 class="post-title">[UE4]技能系统——时间静止，潜能爆发，电磁脉冲</h2>
             <div class="post-date">2020-12-13</div>
             
             <div class="post-content" v-pre>
@@ -109,23 +110,45 @@
 <li>区域球使用静态模型制作</li>
 <li>增加折射材质和其他元素（例：三角形）</li>
 <li>蓝图中添加触发器</li>
-<li>时间静止逻辑<br>
-当有角色碰撞到（Custom Event）→检测是否是AI（Branch）→获取当前AI变量→等待特效生成完毕（Daley）→设置时间（减速）倍率</li>
+<li>时间静止逻辑</li>
 </ol>
+<p>当有角色碰撞到（Custom Event）→检测是否是AI（Branch）→获取当前AI变量→等待特效生成完毕（Daley）→设置时间（减速）倍率</p>
 <p>二、潜能爆发（LUT/改变游戏音调）</p>
+<ol>
+<li>游戏截图和LUT导入PS，调整色相饱和度</li>
+<li>得到调整后的LUT图</li>
+<li>UE4中使用Timeline覆盖玩家摄像机LUT</li>
+<li>使用Set Sound Mix把音效的Pitch调整到1.5</li>
+<li>武器伤害加成</li>
+<li>技能释放完毕还原音高</li>
+</ol>
 <p>三、电磁脉冲（AI持续浮空）</p>
+<ol>
+<li>蓝图中添加触发器,从手套中弹射出的脉冲区域</li>
+<li>接触到敌人的触发器 Projectile Tag用于辨识AI</li>
+<li>AI触碰到此BP设置重力并执行火箭跳</li>
+<li>调用AI模型的物理资源动画Apply Physical Animation</li>
+<li>AI浮空后循环检测地面高度</li>
+</ol>
+<p>滞空</p>
+<ol>
+<li>当敌人滞空后设置材质参数，添加模型描边<br>
+set scaler parameter value on materials</li>
+<li>设置重力让AI滞空  Daley 重力0.1</li>
+<li>受到伤害后持续浮空，改变Movement模型为Flying</li>
+<li>接触到地面取消物理模拟动画，采用timeline 过度</li>
+</ol>
 
             </div>
             
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://chongming7406.github.io/cmblog.github.io/post/hello-gridea/">
-                  <h3 class="post-title">
-                    Hello Gridea
-                  </h3>
-                </a>
+              <div class="tag-container">
+                
+                  <a href="https://chongming7406.github.io/cmblog.github.io/tag/7juPeVtFx/" class="tag">
+                    UE4
+                  </a>
+                
               </div>
+            
             
 
             
