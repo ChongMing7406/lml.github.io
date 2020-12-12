@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https:// http://chongmingrgba.com/</id>
+    <id>https://chongmingrgba.com/</id>
     <title>冲鸣</title>
-    <updated>2020-12-12T18:58:03.206Z</updated>
+    <updated>2020-12-12T18:58:47.634Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https:// http://chongmingrgba.com/"/>
-    <link rel="self" href="https:// http://chongmingrgba.com/atom.xml"/>
+    <link rel="alternate" href="https://chongmingrgba.com/"/>
+    <link rel="self" href="https://chongmingrgba.com/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https:// http://chongmingrgba.com/images/avatar.png</logo>
-    <icon>https:// http://chongmingrgba.com/favicon.ico</icon>
+    <logo>https://chongmingrgba.com/images/avatar.png</logo>
+    <icon>https://chongmingrgba.com/favicon.ico</icon>
     <rights>All rights reserved 2020, 冲鸣</rights>
     <entry>
         <title type="html"><![CDATA[技能系统——时间静止，潜能爆发，电磁脉冲]]></title>
-        <id>https:// http://chongmingrgba.com/post/ji-neng-xi-tong-shi-jian-jing-zhi-qian-neng-bao-fa-dian-ci-mai-chong/</id>
-        <link href="https:// http://chongmingrgba.com/post/ji-neng-xi-tong-shi-jian-jing-zhi-qian-neng-bao-fa-dian-ci-mai-chong/">
+        <id>https://chongmingrgba.com/post/ji-neng-xi-tong-shi-jian-jing-zhi-qian-neng-bao-fa-dian-ci-mai-chong/</id>
+        <link href="https://chongmingrgba.com/post/ji-neng-xi-tong-shi-jian-jing-zhi-qian-neng-bao-fa-dian-ci-mai-chong/">
         </link>
         <updated>2020-12-12T16:44:44.000Z</updated>
         <content type="html"><![CDATA[<p>2018UOD虚幻引擎技术开放日技术演讲，P27纯蓝图项目《光明记忆》制作经验分享</p>
@@ -32,8 +32,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https:// http://chongmingrgba.com/post/hello-gridea/</id>
-        <link href="https:// http://chongmingrgba.com/post/hello-gridea/">
+        <id>https://chongmingrgba.com/post/hello-gridea/</id>
+        <link href="https://chongmingrgba.com/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
