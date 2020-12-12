@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>技能系统——时间静止，潜能爆发，电磁脉冲 | 冲鸣</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chongming7406.github.io/-chongming-.github.io//favicon.ico?v=1607798158775">
+<link rel="stylesheet" href="https://chongming7406.github.io/-chongming-.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="2018UOD虚幻引擎技术开放日技术演讲，P27纯蓝图项目《光明记忆》制作经验分享
+技能系统
+一、时间静止（指定区域内停止AI的时间）
+
+区域球使用静态模型制作
+增加折射材质和其他元素（例：三角形）
+蓝图中添加触发器
+时间静止逻辑
+当有角色..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://chongming7406.github.io/-chongming-.github.io/">
+        <img src="https://chongming7406.github.io/-chongming-.github.io//images/avatar.png?v=1607798158775" class="site-logo">
+        <h1 class="site-title">冲鸣</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chongming7406.github.io/-chongming-.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">技能系统——时间静止，潜能爆发，电磁脉冲</h2>
+            <div class="post-date">2020-12-13</div>
+            
+            <div class="post-content" v-pre>
+              <p>2018UOD虚幻引擎技术开放日技术演讲，P27纯蓝图项目《光明记忆》制作经验分享</p>
+<p><strong>技能系统</strong></p>
+<p>一、时间静止（指定区域内停止AI的时间）</p>
+<ol>
+<li>区域球使用静态模型制作</li>
+<li>增加折射材质和其他元素（例：三角形）</li>
+<li>蓝图中添加触发器</li>
+<li>时间静止逻辑<br>
+当有角色碰撞到（Custom Event）→检测是否是AI（Branch）→获取当前AI变量→等待特效生成完毕（Daley）→设置时间（减速）倍率</li>
+</ol>
+<p>二、潜能爆发（LUT/改变游戏音调）</p>
+<p>三、电磁脉冲（AI持续浮空）</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://chongming7406.github.io/-chongming-.github.io/post/hello-gridea/">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
