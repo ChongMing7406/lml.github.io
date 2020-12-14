@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>【TA】PBR核心知识体系总结与概览 | 冲鸣</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chongming7406.github.io/lml.github.io/favicon.ico?v=1607954162433">
+<link rel="stylesheet" href="https://chongming7406.github.io/lml.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="基于物理的渲染（PBR）白皮书 毛星云
+PBR知识体系概览
+
+核心PBR理论
+渲染方程与BxDF
+迪士尼原则的BxDF（Disney Principled BxDF）
+漫反射BRDF模型（Diffuse BRDF）
+镜面反射BRDF模型（S..." />
+    <meta name="keywords" content="TA,Shader,PBR" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://chongming7406.github.io/lml.github.io">
+        <img src="https://chongming7406.github.io/lml.github.io/images/avatar.png?v=1607954162433" class="site-logo">
+        <h1 class="site-title">冲鸣</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chongming7406.github.io/lml.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">【TA】PBR核心知识体系总结与概览</h2>
+            <div class="post-date">2020-12-13</div>
+            
+            <div class="post-content" v-pre>
+              <p><em>基于物理的渲染（PBR）白皮书 毛星云</em></p>
+<p><strong>PBR知识体系概览</strong></p>
+<ul>
+<li>核心PBR理论</li>
+<li>渲染方程与BxDF</li>
+<li>迪士尼原则的BxDF（Disney Principled BxDF）</li>
+<li>漫反射BRDF模型（Diffuse BRDF）</li>
+<li>镜面反射BRDF模型（Specular BRDF）</li>
+<li>基于物理的环境光照（Physically Based Environment Lighting ）</li>
+<li>离线渲染相关（Offline Rendering Related）</li>
+<li>进阶渲染主题（Advanced Rendering Topics）</li>
+</ul>
+<p><strong>一、PBR核心理论与渲染原理</strong></p>
+<p><em>基于物理的渲染（Physically Based Rendering，PBR）是指使用基于物理原理和微平面理论建模的着色/光照模型，以及使用从现实中测量的表面参数来准确表示真实世界材质的渲染理念。</em></p>
+<ul>
+<li>**微平面理论（Microfacet Theory）。**微平面理论是将物体表面建模成做无数微观尺度上有随机朝向的理想镜面反射的小平面（microfacet）的理论。在实际的PBR 工作流中，这种物体表面的不规则性用粗糙度贴图或者高光度贴图来表示。</li>
+<li>**能量守恒（Energy Conservation）。**出射光线的能量永远不能超过入射光线的能量。随着粗糙度的上升镜面反射区域的面积会增加，作为平衡，镜面反射区域的平均亮度则会下降。</li>
+<li>**菲涅尔反射（Fresnel Reflectance）。**光线以不同角度入射会有不同的反射率。相同的入射角度，不同的物质也会有不同的反射率。万物皆有菲涅尔反射。F0是即 0 度角入射的菲涅尔反射值。大多数非金属的F0范围是0.02<sub>0.04，大多数金属的F0范围是0.7</sub>1.0。</li>
+<li>**线性空间（Linear Space）。**光照计算必须在线性空间完成，shader 中输入的gamma空间的贴图比如漫反射贴图需要被转成线性空间，在具体操作时需要根据不同引擎和渲染器的不同做不同的操作。而描述物体表面属性的贴图如粗糙度，高光贴图，金属贴图等必须保证是线性空间。</li>
+<li>**色调映射（Tone Mapping）。**也称色调复制（tone reproduction），是将宽范围的照明级别拟合到屏幕有限色域内的过程。因为基于HDR渲染出来的亮度值会超过显示器能够显示最大亮度，所以需要使用色调映射，将光照结果从HDR转换为显示器能够正常显示的LDR。</li>
+<li>**物质的光学特性（Substance Optical Properties）。**现实世界中有不同类型的物质可分为三大类：绝缘体（Insulators），半导体（semi-conductors）和导体（conductors）。在渲染和游戏领域，我们一般只对其中的两个感兴趣：导体（金属）和绝缘体（电解质，非金属）。其中非金属具有单色/灰色镜面反射颜色。而金属具有彩色的镜面反射颜色。即非金属的F0是一个float。而金属的F0是一个float3，</li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://chongming7406.github.io/lml.github.io/tag/nOFVZfAHh/" class="tag">
+                    TA
+                  </a>
+                
+                  <a href="https://chongming7406.github.io/lml.github.io/tag/38i_cNZVwF/" class="tag">
+                    Shader
+                  </a>
+                
+                  <a href="https://chongming7406.github.io/lml.github.io/tag/v3PFIljUOl/" class="tag">
+                    PBR
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://chongming7406.github.io/lml.github.io/post/you-xi-kai-fa-tuan-dui-bu-men-gang-wei/">
+                  <h3 class="post-title">
+                    游戏开发团队部门岗位介绍
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

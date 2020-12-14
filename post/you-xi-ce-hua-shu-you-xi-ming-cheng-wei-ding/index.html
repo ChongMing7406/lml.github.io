@@ -1,76 +1,107 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://chongming7406.github.io/lml.github.io</id>
-    <title>冲鸣</title>
-    <updated>2020-12-14T13:56:23.894Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://chongming7406.github.io/lml.github.io"/>
-    <link rel="self" href="https://chongming7406.github.io/lml.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://chongming7406.github.io/lml.github.io/images/avatar.png</logo>
-    <icon>https://chongming7406.github.io/lml.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 冲鸣</rights>
-    <entry>
-        <title type="html"><![CDATA[【游戏设计】技能系统]]></title>
-        <id>https://chongming7406.github.io/lml.github.io/post/you-xi-she-ji-ji-neng-xi-tong2/</id>
-        <link href="https://chongming7406.github.io/lml.github.io/post/you-xi-she-ji-ji-neng-xi-tong2/">
-        </link>
-        <updated>2020-12-14T11:34:12.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="一-总览">一、总览</h1>
-<ul>
-<li><strong>天赋技能</strong>：多为被动效果，如使用某种武器/装备时获得ｘ加成；处于Ｘ环境下获得Ｘ加成；天赋异禀，拥有两套主动技能，可进行切换。</li>
-<li><strong>普通攻击</strong>：Normal_Attack。根据不同的武器类型，会有不同的普通攻击模式，例如刀/剑，枪/弓，法杖，等。不局限于传统RPG游戏的传统职业，还包含使用枪剑（左手枪右手剑）、镰刀等武器的职业。一般由3~4个动作组成一个Combo。不产生任何消耗。</li>
-<li><strong>特殊攻击</strong>：Special_Attack。根据不同的武器类型施展的强力攻击，一般只有一个动作。具有更高的伤害或其他特殊效果，会产生少量消耗HP、MP、怒气等。</li>
-<li><strong>普攻技能</strong>：SkillQ；SkillE 均为主动技能，分为控制型技能，伤害型技能，治疗技能，BUFF技能，召唤型技能和混合型技能等。每种又分为单体技能，限定数量技能，范围型技能等。技能释放（Spawn）过程分为瞬间释放和延迟释放（Delay，Timeline控制）。释放技能会产生一定消耗。有冷却时间。</li>
-<li><strong>终极技能</strong>：SkillR 更加强大的主动技能，包含更多的元素，如变身技能等。造成的效果更高。释放技能产生的消耗更高，有更长的冷却时间。</li>
-</ul>
-<h1 id="二-技能类型">二、技能类型</h1>
-<h2 id="技能类型的分类">技能类型的分类</h2>
-<ul>
-<li><strong>普通伤害</strong>：主要伤害来源。单体伤害，范围伤害。</li>
-<li><strong>特殊伤害</strong>：造成伤害的同时伴随其他减益效果。持续伤害为：中毒，流血，灼烧。</li>
-<li><strong>治疗</strong>：恢复HP,恢复MP。分为单次恢复，持续恢复。单体恢复，范围恢复。</li>
-<li><strong>增益效果</strong>：增加自身攻击力，速度，防御抗性，属性伤害等。</li>
-<li><strong>减益效果</strong>：减攻，减速，减防/抗，减疗。</li>
-<li><strong>控制</strong>：沉默，眩晕，冰冻，嘲讽</li>
-<li><strong>护盾</strong>：护盾加防，抵消伤害。</li>
-</ul>
-<h2 id="特殊的技能类型">特殊的技能类型</h2>
-<ul>
-<li>驱散自身Debuff，驱散敌人Buff。</li>
-<li>复活（死亡后触发），死战（1滴血触发不死，持续x时间）</li>
-<li>伤害免疫</li>
-<li>闪避与命中</li>
-</ul>
-<p>##属性伤害及元素反应机制</p>
-<p>光属性：<br>
-冰属性：<br>
-风属性：<br>
-火属性：<br>
-毒：<br>
-次元：</p>
-<h1 id="三-近战与远程分析">三、近战与远程分析</h1>
-<h2 id="近战实现思路">近战实现思路</h2>
-<h3 id="特效">特效：</h3>
-<ul>
-<li>TrailData</li>
-<li>MeshData 环形片</li>
-</ul>
-<h3 id="检测">检测：</h3>
-<ul>
-<li>在武器上加插槽，然后通过状态通知，通知的Tick事件以上一帧的插槽位置作起点，以目前的插槽位置作终点做射线检测。</li>
-</ul>
-<h2 id="远程实现思路">远程实现思路</h2>
-<p>释放Actor/Bullet碰撞体</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[游戏策划书]游戏名称暂定《冲鸣》]]></title>
-        <id>https://chongming7406.github.io/lml.github.io/post/you-xi-ce-hua-shu-you-xi-ming-cheng-wei-ding/</id>
-        <link href="https://chongming7406.github.io/lml.github.io/post/you-xi-ce-hua-shu-you-xi-ming-cheng-wei-ding/">
-        </link>
-        <updated>2020-12-13T09:12:14.000Z</updated>
-        <content type="html"><![CDATA[<p><font size=3 ><em>前言：接触UE4快一年时间，多以美术学习为主，为了增加学习动力，制作一款独立游戏并发布，特此立项，希望知识和经济双收。</em></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>[游戏策划书]游戏名称暂定《冲鸣》 | 冲鸣</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chongming7406.github.io/lml.github.io/favicon.ico?v=1607954162433">
+<link rel="stylesheet" href="https://chongming7406.github.io/lml.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="前言：接触UE4快一年时间，多以美术学习为主，为了增加学习动力，制作一款独立游戏并发布，特此立项，希望知识和经济双收。
+ 一、游戏概述
+1.1游戏概述
+3D上帝视角角色扮演单机游戏
+
+游戏名称：冲鸣（暂定）
+运行环境：PC
+发布平台：Ste..." />
+    <meta name="keywords" content="游戏开发,UE4" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://chongming7406.github.io/lml.github.io">
+        <img src="https://chongming7406.github.io/lml.github.io/images/avatar.png?v=1607954162433" class="site-logo">
+        <h1 class="site-title">冲鸣</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chongming7406.github.io/lml.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">[游戏策划书]游戏名称暂定《冲鸣》</h2>
+            <div class="post-date">2020-12-13</div>
+            
+            <div class="post-content" v-pre>
+              <p><font size=3 ><em>前言：接触UE4快一年时间，多以美术学习为主，为了增加学习动力，制作一款独立游戏并发布，特此立项，希望知识和经济双收。</em></p>
 <h1 id="font-size5-一-游戏概述"><font size=5 > 一、游戏概述</h1>
 <h2 id="font-size4-11游戏概述"><font size=4 ><strong>1.1游戏概述</strong></h2>
 <p><em>3D上帝视角角色扮演单机游戏</em></p>
@@ -286,89 +317,58 @@ Beam Data</p>
 </ul>
 <h1 id="font-size5-七-游戏音乐"><font size=5 >七、游戏音乐</h1>
 <p>白嫖资源+买资源+找外包</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【TA】PBR核心知识体系总结与概览]]></title>
-        <id>https://chongming7406.github.io/lml.github.io/post/ta-pbr-he-xin-zhi-shi-ti-xi-zong-jie-yu-gai-lan/</id>
-        <link href="https://chongming7406.github.io/lml.github.io/post/ta-pbr-he-xin-zhi-shi-ti-xi-zong-jie-yu-gai-lan/">
-        </link>
-        <updated>2020-12-13T07:07:31.000Z</updated>
-        <content type="html"><![CDATA[<p><em>基于物理的渲染（PBR）白皮书 毛星云</em></p>
-<p><strong>PBR知识体系概览</strong></p>
-<ul>
-<li>核心PBR理论</li>
-<li>渲染方程与BxDF</li>
-<li>迪士尼原则的BxDF（Disney Principled BxDF）</li>
-<li>漫反射BRDF模型（Diffuse BRDF）</li>
-<li>镜面反射BRDF模型（Specular BRDF）</li>
-<li>基于物理的环境光照（Physically Based Environment Lighting ）</li>
-<li>离线渲染相关（Offline Rendering Related）</li>
-<li>进阶渲染主题（Advanced Rendering Topics）</li>
-</ul>
-<p><strong>一、PBR核心理论与渲染原理</strong></p>
-<p><em>基于物理的渲染（Physically Based Rendering，PBR）是指使用基于物理原理和微平面理论建模的着色/光照模型，以及使用从现实中测量的表面参数来准确表示真实世界材质的渲染理念。</em></p>
-<ul>
-<li>**微平面理论（Microfacet Theory）。**微平面理论是将物体表面建模成做无数微观尺度上有随机朝向的理想镜面反射的小平面（microfacet）的理论。在实际的PBR 工作流中，这种物体表面的不规则性用粗糙度贴图或者高光度贴图来表示。</li>
-<li>**能量守恒（Energy Conservation）。**出射光线的能量永远不能超过入射光线的能量。随着粗糙度的上升镜面反射区域的面积会增加，作为平衡，镜面反射区域的平均亮度则会下降。</li>
-<li>**菲涅尔反射（Fresnel Reflectance）。**光线以不同角度入射会有不同的反射率。相同的入射角度，不同的物质也会有不同的反射率。万物皆有菲涅尔反射。F0是即 0 度角入射的菲涅尔反射值。大多数非金属的F0范围是0.02<sub>0.04，大多数金属的F0范围是0.7</sub>1.0。</li>
-<li>**线性空间（Linear Space）。**光照计算必须在线性空间完成，shader 中输入的gamma空间的贴图比如漫反射贴图需要被转成线性空间，在具体操作时需要根据不同引擎和渲染器的不同做不同的操作。而描述物体表面属性的贴图如粗糙度，高光贴图，金属贴图等必须保证是线性空间。</li>
-<li>**色调映射（Tone Mapping）。**也称色调复制（tone reproduction），是将宽范围的照明级别拟合到屏幕有限色域内的过程。因为基于HDR渲染出来的亮度值会超过显示器能够显示最大亮度，所以需要使用色调映射，将光照结果从HDR转换为显示器能够正常显示的LDR。</li>
-<li>**物质的光学特性（Substance Optical Properties）。**现实世界中有不同类型的物质可分为三大类：绝缘体（Insulators），半导体（semi-conductors）和导体（conductors）。在渲染和游戏领域，我们一般只对其中的两个感兴趣：导体（金属）和绝缘体（电解质，非金属）。其中非金属具有单色/灰色镜面反射颜色。而金属具有彩色的镜面反射颜色。即非金属的F0是一个float。而金属的F0是一个float3，</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[游戏开发团队部门岗位介绍]]></title>
-        <id>https://chongming7406.github.io/lml.github.io/post/you-xi-kai-fa-tuan-dui-bu-men-gang-wei/</id>
-        <link href="https://chongming7406.github.io/lml.github.io/post/you-xi-kai-fa-tuan-dui-bu-men-gang-wei/">
-        </link>
-        <updated>2020-12-12T20:38:37.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://chongming7406.github.io/lml.github.io/post-images/1607805716809.jpg" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[UE4]技能系统——时间静止，潜能爆发，电磁脉冲]]></title>
-        <id>https://chongming7406.github.io/lml.github.io/post/ji-neng-xi-tong-shi-jian-jing-zhi-qian-neng-bao-fa-dian-ci-mai-chong/</id>
-        <link href="https://chongming7406.github.io/lml.github.io/post/ji-neng-xi-tong-shi-jian-jing-zhi-qian-neng-bao-fa-dian-ci-mai-chong/">
-        </link>
-        <updated>2020-12-12T16:44:44.000Z</updated>
-        <content type="html"><![CDATA[<p>2018UOD虚幻引擎技术开放日技术演讲，P27纯蓝图项目《光明记忆》制作经验分享</p>
-<p><strong>技能系统</strong></p>
-<p><em><strong>一、时间静止（指定区域内停止AI的时间）</strong></em></p>
-<ol>
-<li>区域球使用静态模型制作</li>
-<li>增加折射材质和其他元素（例：三角形）</li>
-<li>蓝图中添加触发器</li>
-<li>时间静止逻辑</li>
-</ol>
-<p>当有角色碰撞到（Custom Event）→检测是否是AI（Branch）→获取当前AI变量→等待特效生成完毕（Daley）→设置时间（减速）倍率</p>
-<p><em><strong>二、潜能爆发（LUT/改变游戏音调）</strong></em></p>
-<ol>
-<li>游戏截图和LUT导入PS，调整色相饱和度</li>
-<li>得到调整后的LUT图</li>
-<li>UE4中使用Timeline覆盖玩家摄像机LUT</li>
-<li>使用Set Sound Mix把音效的Pitch调整到1.5</li>
-<li>武器伤害加成</li>
-<li>技能释放完毕还原音高</li>
-</ol>
-<p><em><strong>三、电磁脉冲（AI持续浮空）</strong></em><br>
-浮空</p>
-<ol>
-<li>蓝图中添加触发器,从手套中弹射出的脉冲区域</li>
-<li>接触到敌人的触发器 Projectile Tag用于辨识AI</li>
-<li>AI触碰到此BP设置重力并执行火箭跳</li>
-<li>调用AI模型的物理资源动画Apply Physical Animation</li>
-<li>AI浮空后循环检测地面高度</li>
-</ol>
-<p>滞空</p>
-<ol>
-<li>当敌人滞空后设置材质参数，添加模型描边<br>
-set scaler parameter value on materials</li>
-<li>设置重力让AI滞空  Daley 重力0.1</li>
-<li>受到伤害后持续浮空，改变Movement模型为Flying</li>
-<li>接触到地面取消物理模拟动画，采用timeline 过度</li>
-</ol>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://chongming7406.github.io/lml.github.io/tag/gCz0vzuU2/" class="tag">
+                    游戏开发
+                  </a>
+                
+                  <a href="https://chongming7406.github.io/lml.github.io/tag/7juPeVtFx/" class="tag">
+                    UE4
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://chongming7406.github.io/lml.github.io/post/ta-pbr-he-xin-zhi-shi-ti-xi-zong-jie-yu-gai-lan/">
+                  <h3 class="post-title">
+                    【TA】PBR核心知识体系总结与概览
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
