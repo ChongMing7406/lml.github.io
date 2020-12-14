@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chongming7406.github.io/lml.github.io</id>
     <title>冲鸣</title>
-    <updated>2020-12-14T13:56:23.894Z</updated>
+    <updated>2020-12-14T18:53:31.354Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chongming7406.github.io/lml.github.io"/>
     <link rel="self" href="https://chongming7406.github.io/lml.github.io/atom.xml"/>
@@ -10,6 +10,60 @@
     <logo>https://chongming7406.github.io/lml.github.io/images/avatar.png</logo>
     <icon>https://chongming7406.github.io/lml.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 冲鸣</rights>
+    <entry>
+        <title type="html"><![CDATA[Houdini程序化建模入门教程指南]]></title>
+        <id>https://chongming7406.github.io/lml.github.io/post/houdini-cheng-xu-hua-jian-mo-ru-men-jiao-cheng-zhi-nan/</id>
+        <link href="https://chongming7406.github.io/lml.github.io/post/houdini-cheng-xu-hua-jian-mo-ru-men-jiao-cheng-zhi-nan/">
+        </link>
+        <updated>2020-12-14T18:51:07.000Z</updated>
+        <content type="html"><![CDATA[<p><em>摘自 Bilibili：o橘柚o</em></p>
+<h1 id="一-入门基础知识">一、入门基础知识</h1>
+<p>①Houdini18官方入门教程<br>
+https://www.bilibili.com/video/av77323910</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[特效]使用MeshData制作近战刀光特效详细步骤]]></title>
+        <id>https://chongming7406.github.io/lml.github.io/post/te-xiao-shi-yong-meshdata-zhi-zuo-jin-zhan-dao-guang-te-xiao-xiang-xi-bu-zou/</id>
+        <link href="https://chongming7406.github.io/lml.github.io/post/te-xiao-shi-yong-meshdata-zhi-zuo-jin-zhan-dao-guang-te-xiao-xiang-xi-bu-zou/">
+        </link>
+        <updated>2020-12-14T15:24:33.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="思路总览">思路总览：</h1>
+<p>使用圆环型片状Mesh制作主体刀光部分，材质部分需要流动Panner、溶解Dissolve和折射Ref效果。贴图选用单色贴图单通道，在材质中连入Particle Color，在粒子编辑器中使用Particle Color控制颜色。</p>
+<h1 id="materials">Materials：</h1>
+<h2 id="11暗色主体刀光">1.1暗色主体刀光</h2>
+<ul>
+<li>Panner：Panner两张贴图，一张Base_Tex，一张Dissolve_Tex，相乘</li>
+<li>用if节点实现Dissolve，贴图单通道R乘以dynamic parameter的DP0 输入A，DP2输入B，在particle中取其中一个值进行K曲线来控制溶解。</li>
+<li>DP2控制折射强度。</li>
+</ul>
+<h2 id="12亮色主体刀光">1.2亮色主体刀光</h2>
+<ul>
+<li>不需要折射和法线</li>
+<li>替换BaseTex为更犀利的贴图</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://chongming7406.github.io/lml.github.io/post-images/1607963220849.png" alt="" loading="lazy"></figure>
+<h1 id="particle-system">Particle System：</h1>
+<h2 id="21-particle-emitter的module设置">2.1 Particle Emitter的Module设置：</h2>
+<ul>
+<li>主体刀光结构分两层，暗色层永远放在最左边，最先被渲染。亮色层在右边。</li>
+<li>Mesh Data：圆环形片状Mesh，勾选Override Material</li>
+<li>调整Life Time匹配两层节奏</li>
+<li>Spawn：Burst 1个粒子</li>
+<li>Duration：Emitter Loops：1</li>
+<li>Init Mesh Roatation和Init Mesh Roatation Rata控制模型旋转，只给z轴一个固定值。加一个Mesh Roatation Rata*Life ，K曲线控制随着生命的旋转速度。</li>
+<li>Dynamic</li>
+<li>颜色控制：为了增强暗色效果，取消clamp alpha，将alpha值调大。亮色部分用initial color和scale color/life 控制。</li>
+</ul>
+<h1 id="about-animation">About Animation：</h1>
+<ul>
+<li><strong>在什么情况下使用Mesh Data制作刀光效果？</strong><br>
+在动作动画不完美的情况下，使用这个方法制作刀光，可以更圆润，更适合卡通效果。</li>
+<li><strong>添加动画通知</strong><br>
+在根骨骼Root 上添加Socket，调整位置，在动画通知添加Play Particle Effect，选择正确的Socket。此方法的特效时间需在Particle System里的Life Time调整。</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【游戏设计】技能系统]]></title>
         <id>https://chongming7406.github.io/lml.github.io/post/you-xi-she-ji-ji-neng-xi-tong2/</id>
