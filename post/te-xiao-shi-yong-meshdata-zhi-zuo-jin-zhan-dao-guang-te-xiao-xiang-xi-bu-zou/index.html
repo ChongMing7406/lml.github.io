@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chongming7406.github.io/lml.github.io/favicon.ico?v=1607972000075">
+<link rel="shortcut icon" href="https://chongming7406.github.io/lml.github.io/favicon.ico?v=1608015765322">
 <link rel="stylesheet" href="https://chongming7406.github.io/lml.github.io/styles/main.css">
 
 
@@ -29,7 +29,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://chongming7406.github.io/lml.github.io">
-        <img src="https://chongming7406.github.io/lml.github.io/images/avatar.png?v=1607972000075" class="site-logo">
+        <img src="https://chongming7406.github.io/lml.github.io/images/avatar.png?v=1608015765322" class="site-logo">
         <h1 class="site-title">冲鸣</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -96,7 +96,8 @@
             
             <div class="post-content" v-pre>
               <h1 id="思路总览">思路总览：</h1>
-<p>使用圆环型片状Mesh制作主体刀光部分，材质部分需要流动Panner、溶解Dissolve和折射Ref效果。贴图选用单色贴图单通道，在材质中连入Particle Color，在粒子编辑器中使用Particle Color控制颜色。</p>
+<p>使用圆环型片状Mesh制作主体刀光部分，材质部分需要流动Panner、溶解Dissolve和折射Ref效果。贴图选用单色贴图单通道，在材质中连入Particle Color，在粒子编辑器中使用Particle Color控制颜色。<br>
+受击效果思路：亮色细线条爆点+暗色粗线条+随攻击方向发射的粒子+冲击波</p>
 <h1 id="materials">Materials：</h1>
 <h2 id="11暗色主体刀光">1.1暗色主体刀光</h2>
 <ul>
@@ -110,8 +111,14 @@
 <li>替换BaseTex为更犀利的贴图</li>
 </ul>
 <figure data-type="image" tabindex="1"><img src="https://chongming7406.github.io/lml.github.io/post-images/1607963220849.png" alt="" loading="lazy"></figure>
+<h2 id="13烟雾材质">1.3烟雾材质</h2>
+<ul>
+<li>贴图使用序列图，贴图节点使用Particle SubUV而不是Texture Sample</li>
+<li>连入particle color调色</li>
+<li>两层烟雾 暗translucent，亮additive</li>
+</ul>
 <h1 id="particle-system">Particle System：</h1>
-<h2 id="21-particle-emitter的module设置">2.1 Particle Emitter的Module设置：</h2>
+<h2 id="21-particle-emitter的module设置刀光">2.1 Particle Emitter的Module设置（刀光）：</h2>
 <ul>
 <li>主体刀光结构分两层，暗色层永远放在最左边，最先被渲染。亮色层在右边。</li>
 <li>Mesh Data：圆环形片状Mesh，勾选Override Material</li>
@@ -121,6 +128,13 @@
 <li>Init Mesh Roatation和Init Mesh Roatation Rata控制模型旋转，只给z轴一个固定值。加一个Mesh Roatation Rata*Life ，K曲线控制随着生命的旋转速度。</li>
 <li>Dynamic</li>
 <li>颜色控制：为了增强暗色效果，取消clamp alpha，将alpha值调大。亮色部分用initial color和scale color/life 控制。</li>
+</ul>
+<h2 id="22-烟雾">2.2 烟雾</h2>
+<ul>
+<li>转换为GPU粒子，设置bounds，添加力场Local vector field。用力场影响粒子速度。VF Scale/ife K曲线设置力场影响的大小</li>
+<li>subuv linear blend设置好UV重复度，添加SubImage Index。</li>
+<li>位置选择Cylinder，调整大小与刀光对其，surface only，关掉negativeY和Z，目的是只显示一半，达到圆弧效果。</li>
+<li></li>
 </ul>
 <h1 id="about-animation">About Animation：</h1>
 <ul>

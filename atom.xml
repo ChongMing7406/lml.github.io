@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chongming7406.github.io/lml.github.io</id>
     <title>冲鸣</title>
-    <updated>2020-12-14T18:53:31.354Z</updated>
+    <updated>2020-12-15T07:02:48.621Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chongming7406.github.io/lml.github.io"/>
     <link rel="self" href="https://chongming7406.github.io/lml.github.io/atom.xml"/>
@@ -18,8 +18,66 @@
         <updated>2020-12-14T18:51:07.000Z</updated>
         <content type="html"><![CDATA[<p><em>摘自 Bilibili：o橘柚o</em></p>
 <h1 id="一-入门基础知识">一、入门基础知识</h1>
-<p>①Houdini18官方入门教程<br>
-https://www.bilibili.com/video/av77323910</p>
+<ul>
+<li>
+<p>1.<a href=https://www.bilibili.com/video/av77323910>Houdini18官方入门教程</a><br>
+Houdini18出来之后，官方请Rohan Dalvi出的一系列基础教程，5个多小时，涵盖了sop中的重点：UI及基础、程序化建模基础操作、属性attributes、copy节点、vop、vex入门，还有最新的solaris、Lop模块介绍，如果没有houdini基础，入门先看它就对了。</p>
+</li>
+<li>
+<p>2.<a href="https://space.bilibili.com/20391302?from=search& seid=8323735555275030647"> CG猎人B站基础教程</a><br>
+国人的教程，B站上的部分讲了一些基础和节点的知识，特别建议看一下他for循环完全讲解的部分，For循环是houdini中对于新手来说非常常用但是难以理解的部分，他讲的非常清楚。</p>
+</li>
+<li>
+<p>3.<a href="https://www.bilibili.com/video/av28506607">Entagma系列</a><br>
+Entagma制作了很多小案例，可以看下面推荐的这个合集，从第一个开始看，从基础案例讲起。不过可能都比较跳脱，都是一个个小案例。所以建议当泡面番看，适合有空的时候随便看几个，看多了，再结合别的教程看多了，就融会贯通了。</p>
+</li>
+</ul>
+<h1 id="二-初级教程">二、初级教程</h1>
+<ul>
+<li>1.<a href="https://www.bilibili.com/video/av20301958">【Houdini】制作卡通可爱飞船动画教程 Rohan Dalvi - Rocket Ship Houdini</a></li>
+<li>2.<a href="https://www.bilibili.com/video/av20483608"> 【Houdini】车辆交通工具建模教程 Rohan Dalvi – Procedural Vehicle Modeling</a></li>
+</ul>
+<h1 id="三-单独案例">三、单独案例</h1>
+<ul>
+<li>1.<a href="https://www.bilibili.com/video/av50910681">CGMK教程 - 分形矿物1</a></li>
+</ul>
+<p>这也是一部石头相关+材质贴图渲染的教程，看完CG猎人的for循环教程之后，对于这个教程的理解会容易很多。主要讲了用for循环对几何体进行迭代循环，形成比较复杂的矿石效果。就是一个for循环的应用教程。</p>
+<ul>
+<li>2.<a href="https://www.bilibili.com/video/av51269184">CGMK教程 - 分形矿物2</a></li>
+<li>3.<a href="https://www.bilibili.com/video/av37990121">Rohan Dalvi有机几何形建模教程</a><br>
+讲解了houdini如何制作这些重复、有规律并且稍复杂的模型，里面大量运用copy、lsystem来快速建这些有机的、有规律的模型，是很好的基础教程，建模方法值得参考，可以跟着它来做一些自己的hda</li>
+<li>4.<a href="https://www.yiihuu.com/a_8695.html">陨石资产</a></li>
+</ul>
+<p>这个是一个完整的数字资产的建模的教程，我以前不懂数字资产的时候，就是跟着它学会的。数字资产是houdini中很重要的一个概念，它允许你自己封装一些东西，然后以后就可以轻松调用。<br>
+并且这个教程还是面向游戏的，建立好程序化模型之后，还讲了高低模的烘焙。<br>
+最后用mantra程序化组合材质贴图，并渲染。</p>
+<ul>
+<li>5.<a href="https://www.bilibili.com/video/av29821314?from=search&seid=17529637945471838184">uv拆分</a><br>
+建模总是无法离开拆分UV的，这套教程详细讲了houdini中基本节点拆分UV，以及gamedev插件拆分uv的方法。在houdini18中，gamedev变成了lab。</li>
+</ul>
+<h1 id="四-游戏建模及pipeline相关">四、游戏建模及pipeline相关</h1>
+<ul>
+<li>1.<a href="https://www.vfxforce.cn/archives/9702">Mixtraining影视和游戏中程序化建模</a></li>
+</ul>
+<p>讲了运用osm数据生成路网和楼房，一开始讲了一个简单的程序化的架子模型，并讲了导入UE4、变成钢体这样的流程。接下来讲解如何根据地图网站上下载的数据，把这些数据程序化地变成真实模型。本质上就是根据一些面片来程序化地建起一栋楼、路面等。视野非常宏大，直接从大处着手来制作模型，然后渐渐细化，对我真的很有启发。也是游戏行业很常用的osm生成大世界的基础教程。</p>
+<ul>
+<li>2.<a href="https://www.sidefx.com/tutorials/">Simon的一系列教程</a></li>
+</ul>
+<p>2020年左右，houdini官方出了一些列simon讲师的游戏流程的视频，在官网教程里搜simon即可，全是游戏流程的建模，比较基础，着重使用gamedev快速出程序化效果，思路都很不错，绝对值得新人观赏。这些教程b站都有搬运，大家可以自己找，不过官网可以下到工程文件。</p>
+<ul>
+<li>3.<a href="https://www.bilibili.com/video/BV1zJ411E7My">Houdini结合ue4 u3d制作写实赛车游戏</a></li>
+</ul>
+<p>真的就是个手把手教你入门游戏流程的好教程，针对纯新手，教你建模，生成hda，导入ue u3d，最后完成一个完整的游戏场景效果。里面涵盖了houdini节点入门/程序化建模/vex入门/地形系统/houdini engine/ue4 u3d的基础等知识。而且原教程10美元就能买到，足足17个小时，得到里面的工程文件。</p>
+<h1 id="五-地形系统">五、地形系统</h1>
+<ul>
+<li>1.<a href="https://www.bilibili.com/video/av49533798">Houdini17 地形教程</a></li>
+</ul>
+<h1 id="六-vex">六、VEX</h1>
+<ul>
+<li>1.<a href="https://space.bilibili.com/179328791/video">入门B站捷佳系列</a></li>
+<li>2.<a href="https://www.bilibili.com/video/av20882458">捷佳——python城市</a></li>
+</ul>
+<p>根据地图生成城市群的一个非常好的案例，虽然名字是python，但是python在其中只是实现了批量创建节点并导入的功能。大多是用SOP和VEX以及一点点动力学解算，去控制楼房的分布，实现一个城市群，有不少实用技巧。</p>
 ]]></content>
     </entry>
     <entry>
@@ -29,7 +87,8 @@ https://www.bilibili.com/video/av77323910</p>
         </link>
         <updated>2020-12-14T15:24:33.000Z</updated>
         <content type="html"><![CDATA[<h1 id="思路总览">思路总览：</h1>
-<p>使用圆环型片状Mesh制作主体刀光部分，材质部分需要流动Panner、溶解Dissolve和折射Ref效果。贴图选用单色贴图单通道，在材质中连入Particle Color，在粒子编辑器中使用Particle Color控制颜色。</p>
+<p>使用圆环型片状Mesh制作主体刀光部分，材质部分需要流动Panner、溶解Dissolve和折射Ref效果。贴图选用单色贴图单通道，在材质中连入Particle Color，在粒子编辑器中使用Particle Color控制颜色。<br>
+受击效果思路：亮色细线条爆点+暗色粗线条+随攻击方向发射的粒子+冲击波</p>
 <h1 id="materials">Materials：</h1>
 <h2 id="11暗色主体刀光">1.1暗色主体刀光</h2>
 <ul>
@@ -43,8 +102,14 @@ https://www.bilibili.com/video/av77323910</p>
 <li>替换BaseTex为更犀利的贴图</li>
 </ul>
 <figure data-type="image" tabindex="1"><img src="https://chongming7406.github.io/lml.github.io/post-images/1607963220849.png" alt="" loading="lazy"></figure>
+<h2 id="13烟雾材质">1.3烟雾材质</h2>
+<ul>
+<li>贴图使用序列图，贴图节点使用Particle SubUV而不是Texture Sample</li>
+<li>连入particle color调色</li>
+<li>两层烟雾 暗translucent，亮additive</li>
+</ul>
 <h1 id="particle-system">Particle System：</h1>
-<h2 id="21-particle-emitter的module设置">2.1 Particle Emitter的Module设置：</h2>
+<h2 id="21-particle-emitter的module设置刀光">2.1 Particle Emitter的Module设置（刀光）：</h2>
 <ul>
 <li>主体刀光结构分两层，暗色层永远放在最左边，最先被渲染。亮色层在右边。</li>
 <li>Mesh Data：圆环形片状Mesh，勾选Override Material</li>
@@ -54,6 +119,13 @@ https://www.bilibili.com/video/av77323910</p>
 <li>Init Mesh Roatation和Init Mesh Roatation Rata控制模型旋转，只给z轴一个固定值。加一个Mesh Roatation Rata*Life ，K曲线控制随着生命的旋转速度。</li>
 <li>Dynamic</li>
 <li>颜色控制：为了增强暗色效果，取消clamp alpha，将alpha值调大。亮色部分用initial color和scale color/life 控制。</li>
+</ul>
+<h2 id="22-烟雾">2.2 烟雾</h2>
+<ul>
+<li>转换为GPU粒子，设置bounds，添加力场Local vector field。用力场影响粒子速度。VF Scale/ife K曲线设置力场影响的大小</li>
+<li>subuv linear blend设置好UV重复度，添加SubImage Index。</li>
+<li>位置选择Cylinder，调整大小与刀光对其，surface only，关掉negativeY和Z，目的是只显示一半，达到圆弧效果。</li>
+<li></li>
 </ul>
 <h1 id="about-animation">About Animation：</h1>
 <ul>

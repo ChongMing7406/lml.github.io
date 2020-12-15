@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chongming7406.github.io/lml.github.io/favicon.ico?v=1607972000075">
+<link rel="shortcut icon" href="https://chongming7406.github.io/lml.github.io/favicon.ico?v=1608015765322">
 <link rel="stylesheet" href="https://chongming7406.github.io/lml.github.io/styles/main.css">
 
 
@@ -20,9 +20,10 @@
 
     <meta name="description" content="摘自 Bilibili：o橘柚o
 一、入门基础知识
-①Houdini18官方入门教程
-https://www.bilibili.com/video/av77323910
-..." />
+
+
+1.Houdini18官方入门教程
+Houdini18出来之后，官方请Rohan Dalvi出的一系列基础教程，5个多小时，涵盖了sop中的重点：UI及基础、程序化建模基础操作、属性a..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -32,7 +33,7 @@ https://www.bilibili.com/video/av77323910
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://chongming7406.github.io/lml.github.io">
-        <img src="https://chongming7406.github.io/lml.github.io/images/avatar.png?v=1607972000075" class="site-logo">
+        <img src="https://chongming7406.github.io/lml.github.io/images/avatar.png?v=1608015765322" class="site-logo">
         <h1 class="site-title">冲鸣</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -100,8 +101,66 @@ https://www.bilibili.com/video/av77323910
             <div class="post-content" v-pre>
               <p><em>摘自 Bilibili：o橘柚o</em></p>
 <h1 id="一-入门基础知识">一、入门基础知识</h1>
-<p>①Houdini18官方入门教程<br>
-https://www.bilibili.com/video/av77323910</p>
+<ul>
+<li>
+<p>1.<a href=https://www.bilibili.com/video/av77323910>Houdini18官方入门教程</a><br>
+Houdini18出来之后，官方请Rohan Dalvi出的一系列基础教程，5个多小时，涵盖了sop中的重点：UI及基础、程序化建模基础操作、属性attributes、copy节点、vop、vex入门，还有最新的solaris、Lop模块介绍，如果没有houdini基础，入门先看它就对了。</p>
+</li>
+<li>
+<p>2.<a href="https://space.bilibili.com/20391302?from=search& seid=8323735555275030647"> CG猎人B站基础教程</a><br>
+国人的教程，B站上的部分讲了一些基础和节点的知识，特别建议看一下他for循环完全讲解的部分，For循环是houdini中对于新手来说非常常用但是难以理解的部分，他讲的非常清楚。</p>
+</li>
+<li>
+<p>3.<a href="https://www.bilibili.com/video/av28506607">Entagma系列</a><br>
+Entagma制作了很多小案例，可以看下面推荐的这个合集，从第一个开始看，从基础案例讲起。不过可能都比较跳脱，都是一个个小案例。所以建议当泡面番看，适合有空的时候随便看几个，看多了，再结合别的教程看多了，就融会贯通了。</p>
+</li>
+</ul>
+<h1 id="二-初级教程">二、初级教程</h1>
+<ul>
+<li>1.<a href="https://www.bilibili.com/video/av20301958">【Houdini】制作卡通可爱飞船动画教程 Rohan Dalvi - Rocket Ship Houdini</a></li>
+<li>2.<a href="https://www.bilibili.com/video/av20483608"> 【Houdini】车辆交通工具建模教程 Rohan Dalvi – Procedural Vehicle Modeling</a></li>
+</ul>
+<h1 id="三-单独案例">三、单独案例</h1>
+<ul>
+<li>1.<a href="https://www.bilibili.com/video/av50910681">CGMK教程 - 分形矿物1</a></li>
+</ul>
+<p>这也是一部石头相关+材质贴图渲染的教程，看完CG猎人的for循环教程之后，对于这个教程的理解会容易很多。主要讲了用for循环对几何体进行迭代循环，形成比较复杂的矿石效果。就是一个for循环的应用教程。</p>
+<ul>
+<li>2.<a href="https://www.bilibili.com/video/av51269184">CGMK教程 - 分形矿物2</a></li>
+<li>3.<a href="https://www.bilibili.com/video/av37990121">Rohan Dalvi有机几何形建模教程</a><br>
+讲解了houdini如何制作这些重复、有规律并且稍复杂的模型，里面大量运用copy、lsystem来快速建这些有机的、有规律的模型，是很好的基础教程，建模方法值得参考，可以跟着它来做一些自己的hda</li>
+<li>4.<a href="https://www.yiihuu.com/a_8695.html">陨石资产</a></li>
+</ul>
+<p>这个是一个完整的数字资产的建模的教程，我以前不懂数字资产的时候，就是跟着它学会的。数字资产是houdini中很重要的一个概念，它允许你自己封装一些东西，然后以后就可以轻松调用。<br>
+并且这个教程还是面向游戏的，建立好程序化模型之后，还讲了高低模的烘焙。<br>
+最后用mantra程序化组合材质贴图，并渲染。</p>
+<ul>
+<li>5.<a href="https://www.bilibili.com/video/av29821314?from=search&seid=17529637945471838184">uv拆分</a><br>
+建模总是无法离开拆分UV的，这套教程详细讲了houdini中基本节点拆分UV，以及gamedev插件拆分uv的方法。在houdini18中，gamedev变成了lab。</li>
+</ul>
+<h1 id="四-游戏建模及pipeline相关">四、游戏建模及pipeline相关</h1>
+<ul>
+<li>1.<a href="https://www.vfxforce.cn/archives/9702">Mixtraining影视和游戏中程序化建模</a></li>
+</ul>
+<p>讲了运用osm数据生成路网和楼房，一开始讲了一个简单的程序化的架子模型，并讲了导入UE4、变成钢体这样的流程。接下来讲解如何根据地图网站上下载的数据，把这些数据程序化地变成真实模型。本质上就是根据一些面片来程序化地建起一栋楼、路面等。视野非常宏大，直接从大处着手来制作模型，然后渐渐细化，对我真的很有启发。也是游戏行业很常用的osm生成大世界的基础教程。</p>
+<ul>
+<li>2.<a href="https://www.sidefx.com/tutorials/">Simon的一系列教程</a></li>
+</ul>
+<p>2020年左右，houdini官方出了一些列simon讲师的游戏流程的视频，在官网教程里搜simon即可，全是游戏流程的建模，比较基础，着重使用gamedev快速出程序化效果，思路都很不错，绝对值得新人观赏。这些教程b站都有搬运，大家可以自己找，不过官网可以下到工程文件。</p>
+<ul>
+<li>3.<a href="https://www.bilibili.com/video/BV1zJ411E7My">Houdini结合ue4 u3d制作写实赛车游戏</a></li>
+</ul>
+<p>真的就是个手把手教你入门游戏流程的好教程，针对纯新手，教你建模，生成hda，导入ue u3d，最后完成一个完整的游戏场景效果。里面涵盖了houdini节点入门/程序化建模/vex入门/地形系统/houdini engine/ue4 u3d的基础等知识。而且原教程10美元就能买到，足足17个小时，得到里面的工程文件。</p>
+<h1 id="五-地形系统">五、地形系统</h1>
+<ul>
+<li>1.<a href="https://www.bilibili.com/video/av49533798">Houdini17 地形教程</a></li>
+</ul>
+<h1 id="六-vex">六、VEX</h1>
+<ul>
+<li>1.<a href="https://space.bilibili.com/179328791/video">入门B站捷佳系列</a></li>
+<li>2.<a href="https://www.bilibili.com/video/av20882458">捷佳——python城市</a></li>
+</ul>
+<p>根据地图生成城市群的一个非常好的案例，虽然名字是python，但是python在其中只是实现了批量创建节点并导入的功能。大多是用SOP和VEX以及一点点动力学解算，去控制楼房的分布，实现一个城市群，有不少实用技巧。</p>
 
             </div>
             
