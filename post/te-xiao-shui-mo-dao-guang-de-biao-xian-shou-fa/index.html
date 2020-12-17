@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>游戏开发 | 冲鸣</title>
+<title>[特效]水墨刀光的表现手法 | 冲鸣</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,7 +18,21 @@
 
 
 
-    <meta name="description" content="温故而知新">
+    <meta name="description" content="总览：
+
+重点在贴图上，基础纹理的表现全靠贴图。
+水墨溶解的两种方法。
+特效还是用圆环Mesh做。
+
+贴图：
+刀光部分PS素材或者自己拿水墨笔刷画。水墨贴图选择水墨晕开的序列帧。还有墨点墨迹。
+
+
+
+Mat：
+
+两种溶解方法：1，水墨淡化的..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -88,28 +102,45 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 游戏开发</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chongming7406.github.io/lml.github.io/post/you-xi-ce-hua-shu-you-xi-ming-cheng-wei-ding/">
-                  <h2 class="post-title">[游戏策划书]游戏名称暂定《冲鸣》</h2>
-                </a>
-                <div class="post-date">
-                  2020-12-13
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">[特效]水墨刀光的表现手法</h2>
+            <div class="post-date">2020-12-16</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="总览">总览：</h1>
+<ul>
+<li>重点在贴图上，基础纹理的表现全靠贴图。</li>
+<li>水墨溶解的两种方法。</li>
+<li>特效还是用圆环Mesh做。</li>
+</ul>
+<h1 id="贴图">贴图：</h1>
+<p>刀光部分PS素材或者自己拿水墨笔刷画。水墨贴图选择水墨晕开的序列帧。还有墨点墨迹。<br>
+<img src="https://chongming7406.github.io/lml.github.io/post-images/1608048907500.png" alt="" loading="lazy"><br>
+<img src="https://chongming7406.github.io/lml.github.io/post-images/1608049609533.png" alt="" loading="lazy"><br>
+<img src="https://chongming7406.github.io/lml.github.io/post-images/1608049614934.png" alt="" loading="lazy"></p>
+<h1 id="mat">Mat：</h1>
+<ul>
+<li>两种溶解方法：1，水墨淡化的溶解效果，通过调整透明度Opacity实现，用lerp控制Opacity，再用dynamic parameter控制lerp，从粒子编辑器中K曲线控制溶解的速度。2，单方向的硬边溶解效果，直接看图。</li>
+</ul>
+<p><img src="https://chongming7406.github.io/lml.github.io/post-images/1608049225098.png" alt="" loading="lazy"><br>
+<img src="https://chongming7406.github.io/lml.github.io/post-images/1608049567448.png" alt="" loading="lazy"></p>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://chongming7406.github.io/lml.github.io/post/te-xiao-shi-yong-yuan-zhui-xing-mesh-zhi-zuo-luo-xuan-xing-te-xiao/">
+                  <h3 class="post-title">
+                    [特效]使用圆锥形Mesh制作螺旋型特效
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>

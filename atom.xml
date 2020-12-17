@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chongming7406.github.io/lml.github.io</id>
     <title>冲鸣</title>
-    <updated>2020-12-15T07:02:48.621Z</updated>
+    <updated>2020-12-17T07:49:44.031Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chongming7406.github.io/lml.github.io"/>
     <link rel="self" href="https://chongming7406.github.io/lml.github.io/atom.xml"/>
@@ -10,6 +10,155 @@
     <logo>https://chongming7406.github.io/lml.github.io/images/avatar.png</logo>
     <icon>https://chongming7406.github.io/lml.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 冲鸣</rights>
+    <entry>
+        <title type="html"><![CDATA[[特效]剑舞和翅膀特效的设计思路与技术细节]]></title>
+        <id>https://chongming7406.github.io/lml.github.io/post/te-xiao-jian-wu-he-chi-bang-te-xiao-de-she-ji-si-lu-yu-ji-zhu-xi-jie/</id>
+        <link href="https://chongming7406.github.io/lml.github.io/post/te-xiao-jian-wu-he-chi-bang-te-xiao-de-she-ji-si-lu-yu-ji-zhu-xi-jie/">
+        </link>
+        <updated>2020-12-16T16:38:59.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="一-剑舞">一、剑舞</h1>
+<h2 id="分析"><strong>分析：</strong></h2>
+<p>刀光特效主要有两种实现办法：</p>
+<ul>
+<li>1.写实型刀光使用trail data 挂在武器的socket上。适用于动作精度高且连贯的动画。</li>
+<li>2.使用圆环模型制作刀光。适用于非连贯动画和风格化效果。剑舞使用此方法。</li>
+</ul>
+<h2 id="设计方案"><strong>设计方案：</strong></h2>
+<p>特效由三部分组成：</p>
+<ul>
+<li>1.技能蓄力部分</li>
+<li>2.主体五连击的刀光部分</li>
+<li>3.最后一斩的爆点突出</li>
+</ul>
+<h2 id="技术细节"><strong>技术细节：</strong></h2>
+<p>List of this effect:</p>
+<ul>
+<li>Number of custom materials ：18（8 materials ,8 material instance ,2 material function）   自制</li>
+<li>Number of textures:15      来源于贴图库</li>
+<li>Number of meshes:3         自制</li>
+<li>Number of cascade:3         自制</li>
+</ul>
+<h3 id="mesh"><strong>Mesh：</strong></h3>
+<p>3个Mesh，分别为Disk01, Disk02, Sphere</p>
+<h3 id="materials"><strong>Materials：</strong></h3>
+<p>全部使用UE4材质连线，无HLSL编译Shader</p>
+<ul>
+<li>主体亮色刀光：使用自定义Panner节点制作流动效果，If溶解效果，Dynamic Parameter控制溶解参数。</li>
+<li>主体暗色刀光：在亮色刀光的基础上加入折射和法线，产生气流扰乱的效果。</li>
+<li>烟雾部分：序列帧贴图Particle SubUV而不是Texture Sample。暗色 Translucent，亮色Additive。</li>
+<li>Spark：使用RadialGradientExponential 省一张贴图。</li>
+<li>球形Fresnel：使用Fresnel Function，再用Dynamic Parameter（以下简称DP）控制fresnel的power。</li>
+<li>折射Ref：DP+SimpleGrassWind控制WPO，Fresnel控制折射。</li>
+<li>UV_Panner：Break UV，分别对U和V进行参数控制（DP和Instance里调），再Append给Tex。</li>
+<li>地面爆点/假贴花：由于贴花需要连图控制，这里就用粒子系统发射一片了。极坐标+panner制作流动效果。</li>
+<li>material function：两个自定义的panner</li>
+</ul>
+<h3 id="particle-system"><strong>Particle System：</strong></h3>
+<p>3个Particle System：分别是刀光部分，蓄力和持续扰乱效果，爆点部分</p>
+<h4 id="1刀光部分">1.刀光部分：</h4>
+<ul>
+<li>6个发射器，分别为暗色刀光，暗色烟雾，亮色烟雾，亮色刀光，两层粒子。暗色要放在最左边先渲染，亮色刀光放在最右边，不然暗色会压在亮色之上。</li>
+</ul>
+<h4 id="2蓄力和持续扰乱效果">2.蓄力和持续扰乱效果：</h4>
+<ul>
+<li>9个发射器，分别为2层蓄力收缩粒子，4层向内扰动效果，1层最后爆点的向外扰动，1层球形爆点，1层折射。</li>
+<li>DP控制 扰乱材质（UV_Panner）向内或者向外的方向。向内spawn模式选rate，向外spawn模式burst</li>
+</ul>
+<h4 id="3爆点部分">3.爆点部分：</h4>
+<ul>
+<li>3个发射器，分别为1层地面贴花，2层粒子。</li>
+<li>地面贴花，Lock Axis选Z轴，burst一片 即可达到假贴花效果。</li>
+<li>加一盏灯light，勾掉Use Inverse  Squared Falloff，配合高度雾达到假后期效果。</li>
+</ul>
+<h1 id="一-翅膀特效">一、翅膀特效：</h1>
+<h2 id="分析-2"><strong>分析：</strong></h2>
+<p>UE4里的流光翅膀特效主要有两种实现办法：</p>
+<ul>
+<li>1.通过Mesh确定翅膀形状，加流光材质。本次选择此方法。</li>
+<li>2.纯Niagara制作，形状可控性差，需要深入研究。</li>
+</ul>
+<h2 id="设计方案-2"><strong>设计方案：</strong></h2>
+<p>特效由三部分组成，暗色背景翅膀，亮色主体翅膀，点缀粒子</p>
+<h2 id="技术细节-2"><strong>技术细节：</strong></h2>
+<p>List of this effect:</p>
+<ul>
+<li>Number of custom materials ：6（3 materials ,3 material instance ）   自制</li>
+<li>Number of textures:12      来源于网络</li>
+<li>Number of meshes:3         来源于网络</li>
+<li>Number of cascade:1        自制</li>
+</ul>
+<h3 id="mesh-2"><strong>Mesh：</strong></h3>
+<p>3个Mesh 分别为 1层暗色背景翅膀，2层亮色主体翅膀</p>
+<ul>
+<li>暗色背景翅膀：1个材质球，均使用主体材质M_Wing_Back</li>
+<li>亮色主体翅膀（Vertical）：分2个材质球，均使用主体材质M_Wing_Main</li>
+<li>亮色主体翅膀（Horizontal）：分3个材质球，2个使用主体材质M_Wing_Main，1个使用M_Wing_Back（突出蓝色）</li>
+</ul>
+<h3 id="materials-2"><strong>Materials：</strong></h3>
+<ul>
+<li>M_Wing_Main：多层纹理panner后叠加控制Emissive Color。Mask贴图控制Opacity</li>
+<li>M_Wing_Back：上面的其中一部分。</li>
+</ul>
+<h3 id="particle-system-2"><strong>Particle System：</strong></h3>
+<ul>
+<li>1个Particle System</li>
+<li>5个发射器：1层暗色翅膀+2层亮翅膀+左半边粒子+右半边粒子</li>
+<li>1个Mesh有不同材质时，要在Mesh里指认材质球</li>
+<li>带有暗色材质的发射器放左边</li>
+<li>翅膀在材质里调色，粒子在发射器调色</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[特效]水墨刀光的表现手法]]></title>
+        <id>https://chongming7406.github.io/lml.github.io/post/te-xiao-shui-mo-dao-guang-de-biao-xian-shou-fa/</id>
+        <link href="https://chongming7406.github.io/lml.github.io/post/te-xiao-shui-mo-dao-guang-de-biao-xian-shou-fa/">
+        </link>
+        <updated>2020-12-15T16:10:06.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="总览">总览：</h1>
+<ul>
+<li>重点在贴图上，基础纹理的表现全靠贴图。</li>
+<li>水墨溶解的两种方法。</li>
+<li>特效还是用圆环Mesh做。</li>
+</ul>
+<h1 id="贴图">贴图：</h1>
+<p>刀光部分PS素材或者自己拿水墨笔刷画。水墨贴图选择水墨晕开的序列帧。还有墨点墨迹。<br>
+<img src="https://chongming7406.github.io/lml.github.io/post-images/1608048907500.png" alt="" loading="lazy"><br>
+<img src="https://chongming7406.github.io/lml.github.io/post-images/1608049609533.png" alt="" loading="lazy"><br>
+<img src="https://chongming7406.github.io/lml.github.io/post-images/1608049614934.png" alt="" loading="lazy"></p>
+<h1 id="mat">Mat：</h1>
+<ul>
+<li>两种溶解方法：1，水墨淡化的溶解效果，通过调整透明度Opacity实现，用lerp控制Opacity，再用dynamic parameter控制lerp，从粒子编辑器中K曲线控制溶解的速度。2，单方向的硬边溶解效果，直接看图。</li>
+</ul>
+<p><img src="https://chongming7406.github.io/lml.github.io/post-images/1608049225098.png" alt="" loading="lazy"><br>
+<img src="https://chongming7406.github.io/lml.github.io/post-images/1608049567448.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[特效]使用圆锥形Mesh制作螺旋型特效]]></title>
+        <id>https://chongming7406.github.io/lml.github.io/post/te-xiao-shi-yong-yuan-zhui-xing-mesh-zhi-zuo-luo-xuan-xing-te-xiao/</id>
+        <link href="https://chongming7406.github.io/lml.github.io/post/te-xiao-shi-yong-yuan-zhui-xing-mesh-zhi-zuo-luo-xuan-xing-te-xiao/">
+        </link>
+        <updated>2020-12-15T09:05:15.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="思路">思路</h1>
+<p>用圆锥Mesh作为技能的主体形状<br>
+适用于中远位移的冲刺技能，或者远距离的脱手施法。</p>
+<h1 id="mesh">Mesh</h1>
+<p>圆锥模型如图，还需要一个圆片作为蓄力模型用<br>
+<img src="https://chongming7406.github.io/lml.github.io/post-images/1608023175497.png" alt="" loading="lazy"></p>
+<h1 id="mat">Mat</h1>
+<ul>
+<li>两个基础纹理贴图叠加，用SV控制，再用一个SV控制的distort纹理append R和G通道控制基础纹理的UV。</li>
+<li>用mask方法或者刷模型顶点色 做出渐变效果，圆锥尖头透明度为1，底部为0，</li>
+</ul>
+<h1 id="particle-system">Particle System</h1>
+<ul>
+<li>主体部分叠2-3层主体锥体，要有暗色和亮色，加入1-2层粒子火花。蓄力部分用圆片，可在材质中加dynamic parameter，在emitter中K曲线强化螺旋效果。</li>
+<li>动画通知，选用循环播放粒子通知，Spawn模式选Rate。</li>
+<li>两种方法使模型的朝向和运动方向一致：⑴Use Local Space。⑵加Init Mesh Rotation节点，勾选Inherit Parent。优选第二种方法，可以增加随机效果。</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Houdini程序化建模入门教程指南]]></title>
         <id>https://chongming7406.github.io/lml.github.io/post/houdini-cheng-xu-hua-jian-mo-ru-men-jiao-cheng-zhi-nan/</id>
@@ -125,7 +274,6 @@ Entagma制作了很多小案例，可以看下面推荐的这个合集，从第�
 <li>转换为GPU粒子，设置bounds，添加力场Local vector field。用力场影响粒子速度。VF Scale/ife K曲线设置力场影响的大小</li>
 <li>subuv linear blend设置好UV重复度，添加SubImage Index。</li>
 <li>位置选择Cylinder，调整大小与刀光对其，surface only，关掉negativeY和Z，目的是只显示一半，达到圆弧效果。</li>
-<li></li>
 </ul>
 <h1 id="about-animation">About Animation：</h1>
 <ul>

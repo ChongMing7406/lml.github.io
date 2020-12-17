@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>游戏开发 | 冲鸣</title>
+<title>[特效]使用圆锥形Mesh制作螺旋型特效 | 冲鸣</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,7 +18,16 @@
 
 
 
-    <meta name="description" content="温故而知新">
+    <meta name="description" content="思路
+用圆锥Mesh作为技能的主体形状
+适用于中远位移的冲刺技能，或者远距离的脱手施法。
+Mesh
+圆锥模型如图，还需要一个圆片作为蓄力模型用
+
+Mat
+
+两个基础纹理贴图叠加，用SV控制，再用一个SV控制的distort纹理append ..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -88,28 +97,45 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 游戏开发</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://chongming7406.github.io/lml.github.io/post/you-xi-ce-hua-shu-you-xi-ming-cheng-wei-ding/">
-                  <h2 class="post-title">[游戏策划书]游戏名称暂定《冲鸣》</h2>
-                </a>
-                <div class="post-date">
-                  2020-12-13
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">[特效]使用圆锥形Mesh制作螺旋型特效</h2>
+            <div class="post-date">2020-12-15</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="思路">思路</h1>
+<p>用圆锥Mesh作为技能的主体形状<br>
+适用于中远位移的冲刺技能，或者远距离的脱手施法。</p>
+<h1 id="mesh">Mesh</h1>
+<p>圆锥模型如图，还需要一个圆片作为蓄力模型用<br>
+<img src="https://chongming7406.github.io/lml.github.io/post-images/1608023175497.png" alt="" loading="lazy"></p>
+<h1 id="mat">Mat</h1>
+<ul>
+<li>两个基础纹理贴图叠加，用SV控制，再用一个SV控制的distort纹理append R和G通道控制基础纹理的UV。</li>
+<li>用mask方法或者刷模型顶点色 做出渐变效果，圆锥尖头透明度为1，底部为0，</li>
+</ul>
+<h1 id="particle-system">Particle System</h1>
+<ul>
+<li>主体部分叠2-3层主体锥体，要有暗色和亮色，加入1-2层粒子火花。蓄力部分用圆片，可在材质中加dynamic parameter，在emitter中K曲线强化螺旋效果。</li>
+<li>动画通知，选用循环播放粒子通知，Spawn模式选Rate。</li>
+<li>两种方法使模型的朝向和运动方向一致：⑴Use Local Space。⑵加Init Mesh Rotation节点，勾选Inherit Parent。优选第二种方法，可以增加随机效果。</li>
+</ul>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://chongming7406.github.io/lml.github.io/post/houdini-cheng-xu-hua-jian-mo-ru-men-jiao-cheng-zhi-nan/">
+                  <h3 class="post-title">
+                    Houdini程序化建模入门教程指南
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
