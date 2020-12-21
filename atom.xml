@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chongming7406.github.io/lml.github.io</id>
     <title>冲鸣</title>
-    <updated>2020-12-17T07:49:44.031Z</updated>
+    <updated>2020-12-21T10:59:41.749Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chongming7406.github.io/lml.github.io"/>
     <link rel="self" href="https://chongming7406.github.io/lml.github.io/atom.xml"/>
@@ -10,6 +10,111 @@
     <logo>https://chongming7406.github.io/lml.github.io/images/avatar.png</logo>
     <icon>https://chongming7406.github.io/lml.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 冲鸣</rights>
+    <entry>
+        <title type="html"><![CDATA[UE4学习资源汇总]]></title>
+        <id>https://chongming7406.github.io/lml.github.io/post/ue4-xue-xi-zi-yuan-hui-zong/</id>
+        <link href="https://chongming7406.github.io/lml.github.io/post/ue4-xue-xi-zi-yuan-hui-zong/">
+        </link>
+        <updated>2020-12-21T09:18:12.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="介绍一下ue4的模块">介绍一下UE4的模块：</h1>
+<ul>
+<li>程序：蓝图，C++</li>
+<li>Shader：材质编辑器</li>
+<li>VFX特效：粒子编辑器cascade和Niagara，chaos破碎系统</li>
+<li>模型：支持FBX格式，静态和骨骼模型，骨骼重定向，建模要在引擎外软件如maya zbrush 3Dmax blender进行，自带的建模只适合 白盒测试。还有程序化建模，houdini to UE4工作流。</li>
+<li>动画：在外部3D软件制作，导入引擎后可调整 动画蒙太奇，动画蓝图。</li>
+<li>地编：landscape</li>
+<li>灯光：</li>
+<li>其他：雾，天空盒，天气，布料，毛发等等</li>
+</ul>
+<h1 id="学习途径">学习途径</h1>
+<h2 id="一虚幻官方渠道">一，虚幻官方渠道</h2>
+<ul>
+<li><strong><a href="https://docs.unrealengine.com/zh-CN/index.html">虚幻引擎官方文档：</a></strong>                      功能模块文档，比较生硬，个别地方描述少，适合查找节点等描述。</li>
+<li><strong><a href="https://www.unrealengine.com/zh-CN/onlinelearning-courses">虚幻官方在线学习：</a></strong>            成系列视频课程，英文有字幕。</li>
+<li><strong><a href="https://www.youtube.com/channel/UCBobmJyzsJ6Ll7UbfhI4iwQ">虚幻引擎官方Youtube：</a></strong>                      最新英文技术视频（需要翻墙）</li>
+<li><strong><a href="https://twitter.com/UnrealEngine">虚幻引擎官方twitter：</a></strong>                      最新引擎前沿动态（需要翻墙）</li>
+<li><strong><a href="https://space.bilibili.com/138827797">虚幻引擎官方B站：</a></strong>                      中文直播和技术视频，还有搬运过来的英文技术视频</li>
+<li><strong><a href="https://www.zhihu.com/org/xu-huan-yin-qing-24">虚幻引擎官方知乎：</a></strong>                      不能看视频的时候就来看文章吧，相当于国内论坛，虚幻引擎大佬的聚集地</li>
+<li><strong>Epic Games Launcher（Epic启动程序）：</strong> 除了白嫖游戏，也是引擎的启动器，学习模块下有内容示例，包括工程文件，如 Action RPG的工程。</li>
+</ul>
+<h2 id="二最基础的入门教程b站中文">二，最基础的入门教程（B站中文）</h2>
+<ul>
+<li><strong><a href="https://www.bilibili.com/video/BV164411Y732?p=45">UE4初学者系列教程合集-全中文新手入门教程：</a></strong>                      作者谌嘉诚，最基础教程之一</li>
+<li><strong><a href="https://www.bilibili.com/video/BV125411h7c4">UE4从菜鸟到高手合集版：</a></strong>                      也是基础，带一点程序思路。这个UP主还有其他教程可以看。</li>
+<li><strong><a href="https://space.bilibili.com/50247468/channel/detail?cid=53942">蓝图基础教学：</a></strong>                比较完整的一套流程，但是比较简陋。</li>
+<li><strong><a href="https://www.bilibili.com/video/BV18e411p74F">蓝图基础篇：</a></strong></li>
+</ul>
+<h2 id="三进阶">三，进阶</h2>
+<ul>
+<li>
+<p><strong><a href="https://www.bilibili.com/video/BV1Bf4y1D7AT">UE4C++入门到精通合集：</a></strong></p>
+</li>
+<li>
+<p><strong><a href="https://www.bilibili.com/video/BV1Mk4y1B7KB?p=3"> 虚幻C++基础训练：</a></strong></p>
+</li>
+<li>
+<p>AboutCG的两套RPG课程（百度网盘）</p>
+</li>
+<li>
+<p><strong><a href="https://www.bilibili.com/video/BV1Tx41197KP"> 从零制作做一个MMO RPG 游戏：</a></strong> 国外大佬的视频，中文字幕</p>
+</li>
+</ul>
+<h2 id="四合集">四，合集</h2>
+<ul>
+<li><strong><a href="https://zhuanlan.zhihu.com/p/196363738">知乎大佬X Tesla总结的学习途径：</a></strong>                包含所有方面近百篇文章，挑着看，第三章是C++相关，</li>
+<li><strong><a href="https://space.bilibili.com/386805991/channel/detail?cid=104127">UE4零基础入门到独立游戏开发：</a></strong>                CG学习笔记，B站视频合集</li>
+<li><strong><a href="https://space.bilibili.com/6306173/">墨鱼驴肉汤的一些虚幻4教程：</a></strong>   包括 复杂任务系统，地图指南针系统，堡垒之夜建造系统和其他单集教程。</li>
+<li><strong><a href="https://space.bilibili.com/80717401/">UP主莉莉丝官方账号：</a></strong> 搬运的特别多的UE4教学视频，如塞尔达教程，ARPG开放世界教程，RTS红警教程，UE4复刻星球大战教程等等。</li>
+</ul>
+<h2 id="五acf框架学习资料">五，ACF框架学习资料</h2>
+<ul>
+<li>ACF文档</li>
+<li>ACF插件文件及群友制作的Demo文件。</li>
+<li><strong><a href="https://www.bilibili.com/video/BV1Vp4y1X7sQ">Ascent Combat Framework (ACF) ACT战斗框架插件教程 中文字幕：</a></strong></li>
+</ul>
+<p>，</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[插件]maya的场导入UE4插件]]></title>
+        <id>https://chongming7406.github.io/lml.github.io/post/cha-jian-maya-de-chang-dao-ru-ue4-cha-jian/</id>
+        <link href="https://chongming7406.github.io/lml.github.io/post/cha-jian-maya-de-chang-dao-ru-ue4-cha-jian/">
+        </link>
+        <updated>2020-12-20T03:10:01.000Z</updated>
+        <content type="html"><![CDATA[<p>阴间插件啊，太阴间了<br>
+这个插件是UE官方出的，却得在maya里安装，文件又藏在引擎目录里。<br>
+以下内容来自<br>
+https://nerivec.github.io/old-ue4-wiki/pages/creating-vector-fields-tutorial.html</p>
+<h1 id="总览">总览</h1>
+<p>在UE4中，矢量网格是3维网格，细分为单独的体积像素或“体素”，每个体素存储速度矢量（以x，y和z表示）。该栅格很有用，因为级联可以将其视为可影响其内部粒子运动的场。将矢量场视为空间中包含“风”的体积可能会有所帮助，“风”会影响在其中移动的粒子。</p>
+<p>存在两种类型的矢量场：存在于粒子系统内部的局部矢量场和存在于世界中且可能影响位于其边界框中的任何粒子系统的全局矢量场（如果这些粒子系统具有“全局矢量场”模块的“场”）比例参数设置高于1。</p>
+<p>本文档的重点是创作局部矢量场。</p>
+<h1 id="创作矢量场">创作矢量场</h1>
+<p>无法在UE4中创建矢量字段，但是有一些选项可让您在引擎外部创建它们。</p>
+<p>VectorayGen-JangaFX制造的实时矢量场发生器。<br>
+Maya Fluids MEL脚本<br>
+这两个选项的详细信息如下。</p>
+<p>您可以按照自己喜欢的任何方式创作矢量字段，但是VectorayGen是一种生成矢量字段的简单方法，该矢量字段以.FGA文件（流体网格ASCII）格式导出。此文件是一个文本表，您可以根据需要手动轻松地对其进行编辑。</p>
+<p>另一种方法是使用Maya流体。为简化此过程，我们编写了MEL脚本，该脚本仅从Maya的流体容器中导出速度数据，并将其存储为.FGA文件（流体网格ASCII）。同样，此文件是一个文本表，您可以根据需要手动轻松地对其进行编辑。</p>
+<p>#安装FGA插件</p>
+<ol>
+<li>
+<p>在架子窗格中，单击左下拉箭头，然后选择“ Load Shelf ..” ：</p>
+</li>
+<li>
+<p>在文件浏览器中，导航到： [UE4Root]\Engine\Extras\MayaVelocityGridExporter<br>
+单击打开后，您将找到一个名为 UE4_FX 的新架子选项卡 ，其中包含一个按钮。单击此图标将显示一个对话框以及各种FGA导出选项。</p>
+</li>
+<li>
+<p>默认情况下，架子包含一个使用占位符图标的按钮。 ../UE4/Engine/Extras/FX_tools/Maya2012_x64/UE4_FX_Tools/Prefs/Icons/fgaClean.png 如果您想使用自定义图标，则位于 。要安装自定义图标，只需将其复制到Maya用户首选项目录（例如，“ C：/ Users / [User] / Documents / maya / 2012-x64 / prefs / icon”）。</p>
+</li>
+<li>
+<p>现在已经安装了将Maya流体容器导出为UE4的流体网格格式的工具，并可以使用。</p>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[特效]剑舞和翅膀特效的设计思路与技术细节]]></title>
         <id>https://chongming7406.github.io/lml.github.io/post/te-xiao-jian-wu-he-chi-bang-te-xiao-de-she-ji-si-lu-yu-ji-zhu-xi-jie/</id>
@@ -590,59 +695,6 @@ Beam Data</p>
 <li>**色调映射（Tone Mapping）。**也称色调复制（tone reproduction），是将宽范围的照明级别拟合到屏幕有限色域内的过程。因为基于HDR渲染出来的亮度值会超过显示器能够显示最大亮度，所以需要使用色调映射，将光照结果从HDR转换为显示器能够正常显示的LDR。</li>
 <li>**物质的光学特性（Substance Optical Properties）。**现实世界中有不同类型的物质可分为三大类：绝缘体（Insulators），半导体（semi-conductors）和导体（conductors）。在渲染和游戏领域，我们一般只对其中的两个感兴趣：导体（金属）和绝缘体（电解质，非金属）。其中非金属具有单色/灰色镜面反射颜色。而金属具有彩色的镜面反射颜色。即非金属的F0是一个float。而金属的F0是一个float3，</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[游戏开发团队部门岗位介绍]]></title>
-        <id>https://chongming7406.github.io/lml.github.io/post/you-xi-kai-fa-tuan-dui-bu-men-gang-wei/</id>
-        <link href="https://chongming7406.github.io/lml.github.io/post/you-xi-kai-fa-tuan-dui-bu-men-gang-wei/">
-        </link>
-        <updated>2020-12-12T20:38:37.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://chongming7406.github.io/lml.github.io/post-images/1607805716809.jpg" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[UE4]技能系统——时间静止，潜能爆发，电磁脉冲]]></title>
-        <id>https://chongming7406.github.io/lml.github.io/post/ji-neng-xi-tong-shi-jian-jing-zhi-qian-neng-bao-fa-dian-ci-mai-chong/</id>
-        <link href="https://chongming7406.github.io/lml.github.io/post/ji-neng-xi-tong-shi-jian-jing-zhi-qian-neng-bao-fa-dian-ci-mai-chong/">
-        </link>
-        <updated>2020-12-12T16:44:44.000Z</updated>
-        <content type="html"><![CDATA[<p>2018UOD虚幻引擎技术开放日技术演讲，P27纯蓝图项目《光明记忆》制作经验分享</p>
-<p><strong>技能系统</strong></p>
-<p><em><strong>一、时间静止（指定区域内停止AI的时间）</strong></em></p>
-<ol>
-<li>区域球使用静态模型制作</li>
-<li>增加折射材质和其他元素（例：三角形）</li>
-<li>蓝图中添加触发器</li>
-<li>时间静止逻辑</li>
-</ol>
-<p>当有角色碰撞到（Custom Event）→检测是否是AI（Branch）→获取当前AI变量→等待特效生成完毕（Daley）→设置时间（减速）倍率</p>
-<p><em><strong>二、潜能爆发（LUT/改变游戏音调）</strong></em></p>
-<ol>
-<li>游戏截图和LUT导入PS，调整色相饱和度</li>
-<li>得到调整后的LUT图</li>
-<li>UE4中使用Timeline覆盖玩家摄像机LUT</li>
-<li>使用Set Sound Mix把音效的Pitch调整到1.5</li>
-<li>武器伤害加成</li>
-<li>技能释放完毕还原音高</li>
-</ol>
-<p><em><strong>三、电磁脉冲（AI持续浮空）</strong></em><br>
-浮空</p>
-<ol>
-<li>蓝图中添加触发器,从手套中弹射出的脉冲区域</li>
-<li>接触到敌人的触发器 Projectile Tag用于辨识AI</li>
-<li>AI触碰到此BP设置重力并执行火箭跳</li>
-<li>调用AI模型的物理资源动画Apply Physical Animation</li>
-<li>AI浮空后循环检测地面高度</li>
-</ol>
-<p>滞空</p>
-<ol>
-<li>当敌人滞空后设置材质参数，添加模型描边<br>
-set scaler parameter value on materials</li>
-<li>设置重力让AI滞空  Daley 重力0.1</li>
-<li>受到伤害后持续浮空，改变Movement模型为Flying</li>
-<li>接触到地面取消物理模拟动画，采用timeline 过度</li>
-</ol>
 ]]></content>
     </entry>
 </feed>

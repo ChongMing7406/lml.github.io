@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>UE4学习资源汇总 | 冲鸣</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chongming7406.github.io/lml.github.io/favicon.ico?v=1608548358420">
+<link rel="stylesheet" href="https://chongming7406.github.io/lml.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="介绍一下UE4的模块：
+
+程序：蓝图，C++
+Shader：材质编辑器
+VFX特效：粒子编辑器cascade和Niagara，chaos破碎系统
+模型：支持FBX格式，静态和骨骼模型，骨骼重定向，建模要在引擎外软件如maya zbrush ..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://chongming7406.github.io/lml.github.io">
+        <img src="https://chongming7406.github.io/lml.github.io/images/avatar.png?v=1608548358420" class="site-logo">
+        <h1 class="site-title">冲鸣</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chongming7406.github.io/lml.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">UE4学习资源汇总</h2>
+            <div class="post-date">2020-12-21</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="介绍一下ue4的模块">介绍一下UE4的模块：</h1>
+<ul>
+<li>程序：蓝图，C++</li>
+<li>Shader：材质编辑器</li>
+<li>VFX特效：粒子编辑器cascade和Niagara，chaos破碎系统</li>
+<li>模型：支持FBX格式，静态和骨骼模型，骨骼重定向，建模要在引擎外软件如maya zbrush 3Dmax blender进行，自带的建模只适合 白盒测试。还有程序化建模，houdini to UE4工作流。</li>
+<li>动画：在外部3D软件制作，导入引擎后可调整 动画蒙太奇，动画蓝图。</li>
+<li>地编：landscape</li>
+<li>灯光：</li>
+<li>其他：雾，天空盒，天气，布料，毛发等等</li>
+</ul>
+<h1 id="学习途径">学习途径</h1>
+<h2 id="一虚幻官方渠道">一，虚幻官方渠道</h2>
+<ul>
+<li><strong><a href="https://docs.unrealengine.com/zh-CN/index.html">虚幻引擎官方文档：</a></strong>                      功能模块文档，比较生硬，个别地方描述少，适合查找节点等描述。</li>
+<li><strong><a href="https://www.unrealengine.com/zh-CN/onlinelearning-courses">虚幻官方在线学习：</a></strong>            成系列视频课程，英文有字幕。</li>
+<li><strong><a href="https://www.youtube.com/channel/UCBobmJyzsJ6Ll7UbfhI4iwQ">虚幻引擎官方Youtube：</a></strong>                      最新英文技术视频（需要翻墙）</li>
+<li><strong><a href="https://twitter.com/UnrealEngine">虚幻引擎官方twitter：</a></strong>                      最新引擎前沿动态（需要翻墙）</li>
+<li><strong><a href="https://space.bilibili.com/138827797">虚幻引擎官方B站：</a></strong>                      中文直播和技术视频，还有搬运过来的英文技术视频</li>
+<li><strong><a href="https://www.zhihu.com/org/xu-huan-yin-qing-24">虚幻引擎官方知乎：</a></strong>                      不能看视频的时候就来看文章吧，相当于国内论坛，虚幻引擎大佬的聚集地</li>
+<li><strong>Epic Games Launcher（Epic启动程序）：</strong> 除了白嫖游戏，也是引擎的启动器，学习模块下有内容示例，包括工程文件，如 Action RPG的工程。</li>
+</ul>
+<h2 id="二最基础的入门教程b站中文">二，最基础的入门教程（B站中文）</h2>
+<ul>
+<li><strong><a href="https://www.bilibili.com/video/BV164411Y732?p=45">UE4初学者系列教程合集-全中文新手入门教程：</a></strong>                      作者谌嘉诚，最基础教程之一</li>
+<li><strong><a href="https://www.bilibili.com/video/BV125411h7c4">UE4从菜鸟到高手合集版：</a></strong>                      也是基础，带一点程序思路。这个UP主还有其他教程可以看。</li>
+<li><strong><a href="https://space.bilibili.com/50247468/channel/detail?cid=53942">蓝图基础教学：</a></strong>                比较完整的一套流程，但是比较简陋。</li>
+<li><strong><a href="https://www.bilibili.com/video/BV18e411p74F">蓝图基础篇：</a></strong></li>
+</ul>
+<h2 id="三进阶">三，进阶</h2>
+<ul>
+<li>
+<p><strong><a href="https://www.bilibili.com/video/BV1Bf4y1D7AT">UE4C++入门到精通合集：</a></strong></p>
+</li>
+<li>
+<p><strong><a href="https://www.bilibili.com/video/BV1Mk4y1B7KB?p=3"> 虚幻C++基础训练：</a></strong></p>
+</li>
+<li>
+<p>AboutCG的两套RPG课程（百度网盘）</p>
+</li>
+<li>
+<p><strong><a href="https://www.bilibili.com/video/BV1Tx41197KP"> 从零制作做一个MMO RPG 游戏：</a></strong> 国外大佬的视频，中文字幕</p>
+</li>
+</ul>
+<h2 id="四合集">四，合集</h2>
+<ul>
+<li><strong><a href="https://zhuanlan.zhihu.com/p/196363738">知乎大佬X Tesla总结的学习途径：</a></strong>                包含所有方面近百篇文章，挑着看，第三章是C++相关，</li>
+<li><strong><a href="https://space.bilibili.com/386805991/channel/detail?cid=104127">UE4零基础入门到独立游戏开发：</a></strong>                CG学习笔记，B站视频合集</li>
+<li><strong><a href="https://space.bilibili.com/6306173/">墨鱼驴肉汤的一些虚幻4教程：</a></strong>   包括 复杂任务系统，地图指南针系统，堡垒之夜建造系统和其他单集教程。</li>
+<li><strong><a href="https://space.bilibili.com/80717401/">UP主莉莉丝官方账号：</a></strong> 搬运的特别多的UE4教学视频，如塞尔达教程，ARPG开放世界教程，RTS红警教程，UE4复刻星球大战教程等等。</li>
+</ul>
+<h2 id="五acf框架学习资料">五，ACF框架学习资料</h2>
+<ul>
+<li>ACF文档</li>
+<li>ACF插件文件及群友制作的Demo文件。</li>
+<li><strong><a href="https://www.bilibili.com/video/BV1Vp4y1X7sQ">Ascent Combat Framework (ACF) ACT战斗框架插件教程 中文字幕：</a></strong></li>
+</ul>
+<p>，</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://chongming7406.github.io/lml.github.io/post/cha-jian-maya-de-chang-dao-ru-ue4-cha-jian/">
+                  <h3 class="post-title">
+                    [插件]maya的场导入UE4插件
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

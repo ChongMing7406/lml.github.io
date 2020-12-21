@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>[插件]maya的场导入UE4插件 | 冲鸣</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chongming7406.github.io/lml.github.io/favicon.ico?v=1608548358420">
+<link rel="stylesheet" href="https://chongming7406.github.io/lml.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="阴间插件啊，太阴间了
+这个插件是UE官方出的，却得在maya里安装，文件又藏在引擎目录里。
+以下内容来自
+https://nerivec.github.io/old-ue4-wiki/pages/creating-vector-fields..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://chongming7406.github.io/lml.github.io">
+        <img src="https://chongming7406.github.io/lml.github.io/images/avatar.png?v=1608548358420" class="site-logo">
+        <h1 class="site-title">冲鸣</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://chongming7406.github.io/lml.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">[插件]maya的场导入UE4插件</h2>
+            <div class="post-date">2020-12-20</div>
+            
+            <div class="post-content" v-pre>
+              <p>阴间插件啊，太阴间了<br>
+这个插件是UE官方出的，却得在maya里安装，文件又藏在引擎目录里。<br>
+以下内容来自<br>
+https://nerivec.github.io/old-ue4-wiki/pages/creating-vector-fields-tutorial.html</p>
+<h1 id="总览">总览</h1>
+<p>在UE4中，矢量网格是3维网格，细分为单独的体积像素或“体素”，每个体素存储速度矢量（以x，y和z表示）。该栅格很有用，因为级联可以将其视为可影响其内部粒子运动的场。将矢量场视为空间中包含“风”的体积可能会有所帮助，“风”会影响在其中移动的粒子。</p>
+<p>存在两种类型的矢量场：存在于粒子系统内部的局部矢量场和存在于世界中且可能影响位于其边界框中的任何粒子系统的全局矢量场（如果这些粒子系统具有“全局矢量场”模块的“场”）比例参数设置高于1。</p>
+<p>本文档的重点是创作局部矢量场。</p>
+<h1 id="创作矢量场">创作矢量场</h1>
+<p>无法在UE4中创建矢量字段，但是有一些选项可让您在引擎外部创建它们。</p>
+<p>VectorayGen-JangaFX制造的实时矢量场发生器。<br>
+Maya Fluids MEL脚本<br>
+这两个选项的详细信息如下。</p>
+<p>您可以按照自己喜欢的任何方式创作矢量字段，但是VectorayGen是一种生成矢量字段的简单方法，该矢量字段以.FGA文件（流体网格ASCII）格式导出。此文件是一个文本表，您可以根据需要手动轻松地对其进行编辑。</p>
+<p>另一种方法是使用Maya流体。为简化此过程，我们编写了MEL脚本，该脚本仅从Maya的流体容器中导出速度数据，并将其存储为.FGA文件（流体网格ASCII）。同样，此文件是一个文本表，您可以根据需要手动轻松地对其进行编辑。</p>
+<p>#安装FGA插件</p>
+<ol>
+<li>
+<p>在架子窗格中，单击左下拉箭头，然后选择“ Load Shelf ..” ：</p>
+</li>
+<li>
+<p>在文件浏览器中，导航到： [UE4Root]\Engine\Extras\MayaVelocityGridExporter<br>
+单击打开后，您将找到一个名为 UE4_FX 的新架子选项卡 ，其中包含一个按钮。单击此图标将显示一个对话框以及各种FGA导出选项。</p>
+</li>
+<li>
+<p>默认情况下，架子包含一个使用占位符图标的按钮。 ../UE4/Engine/Extras/FX_tools/Maya2012_x64/UE4_FX_Tools/Prefs/Icons/fgaClean.png 如果您想使用自定义图标，则位于 。要安装自定义图标，只需将其复制到Maya用户首选项目录（例如，“ C：/ Users / [User] / Documents / maya / 2012-x64 / prefs / icon”）。</p>
+</li>
+<li>
+<p>现在已经安装了将Maya流体容器导出为UE4的流体网格格式的工具，并可以使用。</p>
+</li>
+</ol>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://chongming7406.github.io/lml.github.io/post/te-xiao-jian-wu-he-chi-bang-te-xiao-de-she-ji-si-lu-yu-ji-zhu-xi-jie/">
+                  <h3 class="post-title">
+                    [特效]剑舞和翅膀特效的设计思路与技术细节
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
